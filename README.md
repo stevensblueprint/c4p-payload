@@ -1,3 +1,22 @@
+# TODO for Blueprint Developers on Team C4P
+
+## Add yourself to the Contributors File
+
+You must have git installed and be added to the Blueprint organization on GitHub. To officially get started on the repository please follow these steps:
+
+1. Clone the repository: `git clone git@github.com:stevensblueprint/c4p-payload.git`
+2. Create a branch: `git checkout -b contributor/REPLACEWITHYOURNAME`
+3. Add your name to ./github/CONTRIUBTORS.md account
+4. Commit your changes:
+   ```
+   git add ./CONTRIBUTORS.md
+   git commit -m "Added Name to Contributors file"
+   git push
+   ```
+
+   This last command may give you an error, just read the error message and follow it to resolve the issue.
+5. [Create a Pull Request on GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+
 # Payload Website Template
 
 This is the official [Payload Website Template](https://github.com/payloadcms/payload/blob/main/templates/website). Use it to power websites, blogs, or portfolios from small to enterprise. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.
