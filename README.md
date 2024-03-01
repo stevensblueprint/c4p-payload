@@ -14,7 +14,7 @@ You must have git installed and be added to the Blueprint organization on GitHub
    git push
    ```
 
-   This last command may give you an error, just read the error message and follow it to resolve the issue.
+   This last command may give you an error, just read the error message and follow it to resolve the issue Link Issue #2 in the description of the PR..
 5. [Create a Pull Request on GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 
 # Payload Website Template
