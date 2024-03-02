@@ -7,3 +7,4 @@
  - Max Green
  - Sutej Upadhyaya
  - Gabriel Talbert Bunt
+ - Miguel Merlin
