@@ -9,3 +9,4 @@
  - Gabriel Talbert Bunt
  - Miguel Merlin
  - Praneeth Vanguru
+ - Rumi Loghmani
