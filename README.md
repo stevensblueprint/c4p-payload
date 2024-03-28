@@ -1,21 +1,87 @@
-# TODO for Blueprint Developers on Team C4P
+TODO add table of contents
+
+# Blueprint Developers on Team C4P
 
 ## Add yourself to the Contributors File
 
-You must have git installed and be added to the Blueprint organization on GitHub. To officially get started on the repository please follow these steps:
+You must have git installed and be added to the Blueprint organization on GitHub. To officially get started on the repository, please follow these steps:
 
 1. Clone the repository: `git clone git@github.com:stevensblueprint/c4p-payload.git`
-2. Create a branch: `git checkout -b contributor/REPLACEWITHYOURNAME`
-3. Add your name to ./github/CONTRIUBTORS.md account
+2. Create a branch: `git checkout -b YOURNAME/contributor`
+3. Add your name to the ./github/CONTRIUBTORS.md file
 4. Commit your changes:
    ```
    git add ./CONTRIBUTORS.md
-   git commit -m "Added Name to Contributors file"
+   git commit -m "Added YOURNAME to Contributors file"
    git push
    ```
 
-   This last command may give you an error, just read the error message and follow it to resolve the issue Link Issue #2 in the description of the PR..
+   This last command may give you an error, so just read the error message and follow it to resolve the issue.
+   
 5. [Create a Pull Request on GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+Be sure to link [Issue #2](https://github.com/stevensblueprint/c4p-payload/issues/2) in the description of your PR! Assign a reviewer so that it can be approved!
+
+##  Development
+
+To spin up this example locally, follow the [Quick Start](#quick-start). Then [Seed](#seed) the database with a few pages, posts, and projects.
+
+### Docker
+
+Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+
+1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
+1. Next run `docker-compose up`
+1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+
+That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+
+### Seed
+
+To seed the database with a few pages, posts, and projects you can run `yarn seed`. This template also comes with a `GET /api/seed` endpoint you can use to seed the database from the admin panel.
+
+The seed script will also create two users for demonstration purposes only:
+1. Demo Author
+    - Email: `demo-author@payloadcms.com`
+    - Password: `password`
+    - Role: `admin`
+2. Demo User
+    - Email: `demo-user@payloadcms.com`
+    - Password: `password`
+    - Role: `user`
+
+> NOTICE: seeding the database is destructive because it drops your current database to populate a fresh one from the seed template. Only run this command if you are starting a new project or can afford to lose your current data.
+
+
+### Cache
+
+Although Next.js includes a robust set of caching strategies out of the box, Payload Cloud proxies and caches all files through Cloudflare using the [Official Cloud Plugin](https://github.com/payloadcms/plugin-cloud). This means that Next.js caching is not needed and is disabled by default. If you are hosting your app outside of Payload Cloud, you can easily reenable the Next.js caching mechanisms by removing the `no-store` directive from all fetch requests in `./src/app/_api` and then removing all instances of `export const dynamic = 'force-dynamic'` from pages files, such as `./src/app/(pages)/[slug]/page.tsx`. For more details, see the official [Next.js Caching Docs](https://nextjs.org/docs/app/building-your-application/caching).
+
+### Eject
+
+If you prefer another front-end framework or would like to use Payload as a standalone CMS, you can easily eject the front-end from this template. To eject, simply run `yarn eject`. This will uninstall all Next.js related dependencies and delete all files and folders related to the Next.js front-end. It also removes all custom routing from your `server.ts` file and updates your `eslintrc.js`.
+
+> Note: Your eject script may not work as expected if you've made significant modifications to your project. If you run into any issues, compare your project's dependencies and file structure with this template. See [./src/eject](./src/eject) for full details.
+
+For more details on how setup a custom server, see the official [Custom Server Example](https://github.com/payloadcms/payload/tree/main/examples/custom-server).
+
+## Production
+
+To run Payload in production, you need to build and serve the Admin panel. To do so, follow these steps:
+
+1. Invoke the `payload build` script by running `yarn build` or `npm run build` in your project root. This creates a `./build` directory with a production-ready admin bundle.
+1. Finally run `yarn serve` or `npm run serve` to run Node in production and serve Payload from the `./build` directory.
+1. When you're ready to go live, see [Deployment](#deployment) for more details.
+
+### Deployment
+
+Before deploying your app, you need to:
+
+1. Ensure your app builds and serves in production. See [Production](#production) for more details.
+
+The easiest way to deploy your project is to use [Payload Cloud](https://payloadcms.com/new/import), a one-click hosting solution to deploy production-ready instances of your Payload apps directly from your GitHub repo. You can also deploy your app manually, check out the [deployment documentation](https://payloadcms.com/docs/production/deployment) for full details.
+
+
+
 
 # Payload Website Template
 
@@ -37,14 +103,6 @@ Core features:
 ## Quick Start
 
 To spin up this example locally, follow these steps:
-
-### Clone
-
-If you have not done so already, you need to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
-
-Use the `git` CLI to clone this template directly to your machine:
-
-  git clone https://github.com/stevensblueprint/c4p-payload.git
 
 ### Development
 
@@ -197,64 +255,6 @@ Core features:
 - Pre-made layout building blocks
 - SEO
 - Redirects
-
-### Cache
-
-Although Next.js includes a robust set of caching strategies out of the box, Payload Cloud proxies and caches all files through Cloudflare using the [Official Cloud Plugin](https://github.com/payloadcms/plugin-cloud). This means that Next.js caching is not needed and is disabled by default. If you are hosting your app outside of Payload Cloud, you can easily reenable the Next.js caching mechanisms by removing the `no-store` directive from all fetch requests in `./src/app/_api` and then removing all instances of `export const dynamic = 'force-dynamic'` from pages files, such as `./src/app/(pages)/[slug]/page.tsx`. For more details, see the official [Next.js Caching Docs](https://nextjs.org/docs/app/building-your-application/caching).
-
-### Eject
-
-If you prefer another front-end framework or would like to use Payload as a standalone CMS, you can easily eject the front-end from this template. To eject, simply run `yarn eject`. This will uninstall all Next.js related dependencies and delete all files and folders related to the Next.js front-end. It also removes all custom routing from your `server.ts` file and updates your `eslintrc.js`.
-
-> Note: Your eject script may not work as expected if you've made significant modifications to your project. If you run into any issues, compare your project's dependencies and file structure with this template. See [./src/eject](./src/eject) for full details.
-
-For more details on how setup a custom server, see the official [Custom Server Example](https://github.com/payloadcms/payload/tree/main/examples/custom-server).
-
-##  Development
-
-To spin up this example locally, follow the [Quick Start](#quick-start). Then [Seed](#seed) the database with a few pages, posts, and projects.
-
-### Docker
-
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
-
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
-
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
-
-### Seed
-
-To seed the database with a few pages, posts, and projects you can run `yarn seed`. This template also comes with a `GET /api/seed` endpoint you can use to seed the database from the admin panel.
-
-The seed script will also create two users for demonstration purposes only:
-1. Demo Author
-    - Email: `demo-author@payloadcms.com`
-    - Password: `password`
-    - Role: `admin`
-2. Demo User
-    - Email: `demo-user@payloadcms.com`
-    - Password: `password`
-    - Role: `user`
-
-> NOTICE: seeding the database is destructive because it drops your current database to populate a fresh one from the seed template. Only run this command if you are starting a new project or can afford to lose your current data.
-
-## Production
-
-To run Payload in production, you need to build and serve the Admin panel. To do so, follow these steps:
-
-1. Invoke the `payload build` script by running `yarn build` or `npm run build` in your project root. This creates a `./build` directory with a production-ready admin bundle.
-1. Finally run `yarn serve` or `npm run serve` to run Node in production and serve Payload from the `./build` directory.
-1. When you're ready to go live, see [Deployment](#deployment) for more details.
-
-### Deployment
-
-Before deploying your app, you need to:
-
-1. Ensure your app builds and serves in production. See [Production](#production) for more details.
-
-The easiest way to deploy your project is to use [Payload Cloud](https://payloadcms.com/new/import), a one-click hosting solution to deploy production-ready instances of your Payload apps directly from your GitHub repo. You can also deploy your app manually, check out the [deployment documentation](https://payloadcms.com/docs/production/deployment) for full details.
 
 ## Questions
 
