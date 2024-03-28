@@ -33,12 +33,12 @@ Alternatively, you can use [Docker](https://www.docker.com) to spin up this temp
 2. Next run `docker-compose up`
 3. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
 
-### Note for windows users of Docker
+That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
+
+### Note for Windows users of Docker
 
 If you're using docker on windows make sure that you go the settings (top right on docker desktop) and make sure that Use the WSL 2 based engine boxed in ticked
 If you don't wsl installed open cmd (make sure to run as adminstator) and run the command wsl --install
-
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
 
 ### Seed
 
