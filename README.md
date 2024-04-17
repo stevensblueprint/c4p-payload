@@ -25,6 +25,19 @@ Be sure to link [Issue #2](https://github.com/stevensblueprint/c4p-payload/issue
 
 To spin up this example locally, follow the [Quick Start](#quick-start). Then [Seed](#seed) the database with a few pages, posts, and projects.
 
+## Quick Start
+TODO edit/remove this stuff since we don't want to use yarn at all
+
+To spin up this example locally, follow these steps:
+
+### Development
+
+1. First [clone the repo](#clone) if you have not done so already
+1. `cd c4p-payload && cp .env.example .env` to copy the example environment variables
+1. `yarn && yarn dev` to install dependencies and start the dev server
+1. `open http://localhost:3000` to open the app in your browser
+
+
 ### Docker
 
 Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
@@ -39,6 +52,11 @@ That's it! The Docker instance will help you get up and running quickly while al
 
 If you're using docker on windows make sure that you go the settings (top right on docker desktop) and make sure that Use the WSL 2 based engine boxed in ticked
 If you don't wsl installed open cmd (make sure to run as adminstator) and run the command wsl --install
+
+That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+
+TODO: elaborate on this part for Blueprint devs
+
 
 ### Seed
 
@@ -88,7 +106,13 @@ The easiest way to deploy your project is to use [Payload Cloud](https://payload
 
 
 
+
+
+
+
 # Payload Website Template
+
+TODO: remove the sections for these components that we don't use
 
 This is the official [Payload Website Template](https://github.com/payloadcms/payload/blob/main/templates/website). Use it to power websites, blogs, or portfolios from small to enterprise. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.
 
@@ -104,19 +128,6 @@ Core features:
 - [Redirects](#redirects)
 - [SEO](#seo)
 - [Website](#website)
-
-## Quick Start
-
-To spin up this example locally, follow these steps:
-
-### Development
-
-1. First [clone the repo](#clone) if you have not done so already
-1. `cd c4p-payload && cp .env.example .env` to copy the example environment variables
-1. `yarn && yarn dev` to install dependencies and start the dev server
-1. `open http://localhost:3000` to open the app in your browser
-
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
 
 ## How it works
 
